@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GED Social Studies: US History Extended Reviewer & 50-Item Practice Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f8',
+              100: '#fce7f3',
+              200: '#fbcfe8',
+              500: '#ec4899',
+              600: '#db2777',
+              700: '#be185d',
+            },
+            navy: {
+              800: '#1e293b',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background-color: #ffffff !important; color: #000000 !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #fff !important; color: #000 !important; box-shadow: none !important; }
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+  <div id="app" class="flex-grow flex flex-col">
+
+    <main id="screen-locked" class="flex-grow flex items-center justify-center p-4">
+      <div class="max-w-md w-full bg-white border border-slate-200 rounded-2xl p-8 text-center shadow-lg space-y-6">
+        <div class="w-16 h-16 bg-brand-50 border border-brand-100 text-brand-600 rounded-2xl flex items-center justify-center mx-auto text-2xl shadow-sm">
+          <i class="fas fa-lock"></i>
+        </div>
+        
+        <div>
+          <span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Scheduled Exam Session</span>
+          <h2 class="text-xl font-extrabold text-slate-900 mt-3">Assessment Currently Locked</h2>
+          <p class="text-xs text-slate-500 mt-2">
+            This GED Social Studies exam session is scheduled to unlock on:
+          </p>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 mt-3 text-xs font-bold text-slate-800">
+            September 1, 2026 at 4:30 PM (Doha Time / AST)
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-slate-900 via-navy-900 to-slate-900 text-white rounded-xl p-4 space-y-1">
+          <div class="text-[10px] uppercase font-bold text-brand-300 tracking-wider">Time Remaining Until Unlock</div>
+          <div id="lock-countdown-display" class="font-mono text-2xl font-extrabold text-white">
+            00h 00m 00s
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400">
+          Instructor: <strong>Ms. Maria</strong> | Learnovate Coaching
+        </div>
+      </div>
+    </main>
+
+    <header id="app-header" class="hidden bg-white border-b border-slate-200 py-3.5 px-6 sticky top-0 z-40 shadow-sm">
+      <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 bg-brand-50 border border-brand-100 rounded-xl text-brand-600 shadow-sm">
+            <i class="fas fa-landmark text-xl"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">GED Test Standard</span>
+              <h1 class="text-base font-bold text-slate-900 leading-tight">GED Social Studies: U.S. History Master Exam</h1>
+            </div>
+            <p class="text-xs text-brand-600 font-semibold">Extended Study Reviewer & 50-Item Standardized Practice Examination</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+            <i class="fas fa-chalkboard-teacher text-xs text-brand-600"></i>
+            <span class="text-xs text-slate-600">Instructor: <strong class="text-slate-900">Ms. Maria</strong></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="screen-registration" class="hidden flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
+      
+      <div class="bg-gradient-to-r from-slate-900 via-navy-900 to-slate-900 text-white border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-md relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-brand-500 pointer-events-none">
+          <i class="fas fa-book-open text-[240px]"></i>
+        </div>
+        <div class="max-w-3xl relative z-10">
+          <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Official GED Test Pattern</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 mb-2">U.S. History Extended Reviewer & 50-Item Test</h2>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Review the complete 7-module U.S. History curriculum below. Every concept, document, law, and Supreme Court precedent in this reviewer corresponds directly to the 50 standardized test items in the timed practice examination.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <div class="lg:col-span-4 space-y-6">
+          
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-20">
+            <h3 class="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
+              <i class="fas fa-user-check text-brand-600"></i> Examinee Registration
+            </h3>
+            <p class="text-xs text-slate-500 mb-5">Enter candidate credentials to unlock your 50-question GED assessment session.</p>
+            
+            <form id="form-registration" onsubmit="event.preventDefault();" class="space-y-4">
+              <div>
+                <label for="input-name" class="block text-xs font-semibold text-slate-700 mb-1">Full Candidate Name *</label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                    <i class="fas fa-user text-xs"></i>
+                  </div>
+                  <input type="text" id="input-name" placeholder="e.g. Maria Santos" oninput="validateRegistration()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                </div>
+              </div>
+
+              <div>
+                <label for="input-email" class="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                    <i class="fas fa-envelope text-xs"></i>
+                  </div>
+                  <input type="email" id="input-email" placeholder="candidate@example.com" oninput="validateRegistration()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button id="btn-start" onclick="startAssessment()" disabled
+                  class="w-full bg-slate-200 text-slate-400 font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 cursor-not-allowed">
+                  <span>Start 50-Item GED Exam</span>
+                  <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+            </form>
+
+            <div class="mt-6 pt-5 border-t border-slate-100 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Total Items:</span>
+                <strong class="text-slate-900 font-bold">50 Questions</strong>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Time Allowed:</span>
+                <strong class="text-slate-800 font-mono">90 Minutes</strong>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Passing Target:</span>
+                <strong class="text-brand-600">75% (38/50)</strong>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Auto-Grading & Dispatch:</span>
+                <strong class="text-emerald-600">Active</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-8 space-y-6">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-50 text-brand-600 px-2.5 py-1 rounded border border-brand-100">Official Curriculum Alignment</span>
+                <h3 class="text-xl font-extrabold text-slate-900 mt-1">GED Social Studies: Extended Master Reviewer</h3>
+              </div>
+              <div class="text-xs text-slate-400 flex items-center gap-1.5">
+                <i class="fas fa-layer-group text-brand-500"></i> 7 Detailed Modules
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+              This extended study guide directly aligns with the 50 practice items below. Review these core historical concepts, constitutional foundations, foreign policy doctrines, and Supreme Court precedents prior to beginning your exam session.
+            </p>
+
+            <div class="space-y-3">
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition" open>
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">1</span>
+                    Colonial Era, Independence & Constitutional Foundations (1776–1789)
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• Declaration of Independence (1776):</strong> Written primarily by Thomas Jefferson. Grounded in John Locke’s Enlightenment philosophy of <em>natural rights</em> ("life, liberty, and the pursuit of happiness") and the <em>social contract</em> (government derives authority from the consent of the governed).</p>
+                  <p><strong>• Articles of Confederation (1781–1789):</strong> America's first constitution. Intentionally created a weak national government with no executive branch, no national judiciary, and no power to levy taxes or regulate commerce.</p>
+                  <p><strong>• Shays' Rebellion (1786):</strong> An armed uprising of western Massachusetts farmers protesting debt and tax foreclosures. It exposed the central government's inability to maintain public order under the Articles, prompting the Constitutional Convention.</p>
+                  <p><strong>• Constitutional Compromises & Principles:</strong></p>
+                  <ul class="list-disc pl-5 space-y-1 text-[11px] text-slate-600">
+                    <li><strong>Great Compromise:</strong> Created a <em>bicameral legislature</em>—the Senate (equal representation: 2 per state) and the House of Representatives (proportional to population).</li>
+                    <li><strong>Federalism:</strong> The constitutional system that divides power between the national (federal) government and individual state governments.</li>
+                    <li><strong>Checks and Balances:</strong> Mechanisms ensuring no single branch dominates (e.g., Presidential veto over Congress, Congressional power to override vetoes, Supreme Court judicial review).</li>
+                  </ul>
+                  <p><strong>• The Bill of Rights (1791):</strong> The first 10 amendments protecting individual civil liberties. The <strong>First Amendment</strong> guarantees freedom of speech, religion, press, assembly, and petition.</p>
+                </div>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition">
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">2</span>
+                    Early Republic, Westward Expansion & Sectional Division (1800–1860)
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• Executive Branch & Constitution:</strong> Article II establishes the <strong>Executive Branch</strong> headed by the President to enforce and execute federal laws.</p>
+                  <p><strong>• Louisiana Purchase (1803):</strong> President Thomas Jefferson purchased 828,000 square miles from France for $15 million, doubling the size of the U.S. and securing control of the Mississippi River.</p>
+                  <p><strong>• Monroe Doctrine (1823):</strong> President James Monroe declared the Western Hemisphere closed to future European colonization, warning foreign powers against interfering in American nations.</p>
+                  <p><strong>• Manifest Destiny:</strong> The 19th-century ideology holding that the U.S. was divinely ordained to expand across North America from the Atlantic to the Pacific.</p>
+                  <p><strong>• Sectional Crises over Slavery:</strong></p>
+                  <ul class="list-disc pl-5 space-y-1 text-[11px] text-slate-600">
+                    <li><strong>Missouri Compromise (1820):</strong> Admitted Missouri as a slave state and Maine as a free state; prohibited slavery north of the 36°30' parallel in the Louisiana Territory.</li>
+                    <li><strong>Kansas-Nebraska Act (1854):</strong> Repealed the 36°30' line and introduced <em>popular sovereignty</em> (allowing voters in territories to decide on slavery), sparking violent conflict known as "Bleeding Kansas".</li>
+                  </ul>
+                  <p><strong>• Judicial Review:</strong> Established in <strong>Marbury v. Madison (1803)</strong>, giving the Supreme Court authority to strike down laws that violate the U.S. Constitution.</p>
+                </div>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition">
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">3</span>
+                    Civil War & Reconstruction Era (1861–1877)
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• Civil War (1861–1865):</strong> Stemmed from sectional conflicts over slavery, states' rights, and economic differences between the industrial North and agrarian South.</p>
+                  <p><strong>• Emancipation Proclamation (1863):</strong> Issued by Abraham Lincoln following the Battle of Antietam. Declared free all enslaved persons residing in states currently in rebellion against the Union.</p>
+                  <div class="bg-brand-50/60 p-3 rounded-lg border border-brand-100 space-y-1 text-[11px]">
+                    <div class="font-bold text-brand-700 uppercase tracking-wide"><i class="fas fa-star text-brand-500"></i> Reconstruction Amendments (Crucial GED Knowledge):</div>
+                    <div><strong>13th Amendment (1865):</strong> Formally abolished slavery and involuntary servitude nationwide.</div>
+                    <div><strong>14th Amendment (1868):</strong> Granted citizenship to all persons born or naturalized in the U.S. and guaranteed <em>Equal Protection</em> and <em>Due Process</em> under the law.</div>
+                    <div><strong>15th Amendment (1870):</strong> Prohibited denying voting rights based on race, color, or previous condition of servitude.</div>
+                  </div>
+                  <p><strong>• Reconstruction Era (1865–1877):</strong> Federal effort to rebuild the Southern economy, readmit former Confederate states, and protect African American rights. The <em>Freedmen's Bureau</em> provided food, medical care, and education to newly freed individuals.</p>
+                  <p><strong>• Compromise of 1877 & Jim Crow:</strong> The withdrawal of federal troops marked the end of Reconstruction, enabling Southern states to enact <em>Jim Crow laws</em> enforcing legal segregation and voter suppression.</p>
+                </div>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition">
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">4</span>
+                    Industrialization, Progressive Reforms & Imperialism (1870–1920)
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• Second Industrial Revolution:</strong> Unprecedented growth in industrial production, railroads, and corporate monopolies. The <strong>Sherman Antitrust Act (1890)</strong> was passed to outlaw trusts and anti-competitive business practices.</p>
+                  <p><strong>• Progressive Era Reforms:</strong> Movements aimed at correcting industrial social ills. Investigative journalists called <strong>Muckrakers</strong> exposed corporate corruption and unsanitary conditions (e.g., Upton Sinclair’s <em>The Jungle</em> led to the Meat Inspection Act and Pure Food and Drug Act of 1906).</p>
+                  <p><strong>• Workplace Safety:</strong> Tragedies like the 1911 <em>Triangle Shirtwaist Factory fire</em> spurred state and national labor safety regulations and mandatory building codes.</p>
+                  <p><strong>• Theodore Roosevelt's Square Deal:</strong> Domestic agenda focusing on consumer protection, control of corporations, and natural resource conservation.</p>
+                  <p><strong>• 19th Amendment (1920):</strong> Granted women the constitutional right to vote after decades of organized suffrage campaigning.</p>
+                  <p><strong>• Spanish-American War (1898):</strong> America emerged as an imperial power, gaining control of Puerto Rico, Guam, and the Philippines.</p>
+                </div>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition">
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">5</span>
+                    World War I, Great Depression & The New Deal (1914–1941)
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• World War I (1914–1918):</strong> U.S. entered in 1917 following German unrestricted submarine warfare (e.g., sinking of the <em>Lusitania</em>) and the Zimmermann Telegram. President Woodrow Wilson proposed the <strong>Fourteen Points</strong> peace plan, but the Senate rejected joining the League of Nations to preserve U.S. isolationism.</p>
+                  <p><strong>• Great Depression (1929–1939):</strong> Sparked by the October 1929 stock market crash, bank panics, overproduction, and the <strong>Dust Bowl</strong> (severe ecological drought in the Great Plains). Unemployment hit 25%.</p>
+                  <p><strong>• FDR's New Deal:</strong> Comprehensive reform programs organized around <strong>Relief, Recovery, and Reform</strong>:</p>
+                  <ul class="list-disc pl-5 space-y-1 text-[11px] text-slate-600">
+                    <li><strong>FDIC (Federal Deposit Insurance Corporation):</strong> Insured individual bank deposits to prevent bank runs.</li>
+                    <li><strong>Social Security Act (1935):</strong> Created old-age pensions, disability benefits, and unemployment compensation.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition">
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">6</span>
+                    World War II & Cold War Geopolitics (1939–1991)
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• World War II (1939–1945):</strong> Ended U.S. isolationism after the surprise attack on <strong>Pearl Harbor on December 7, 1941</strong>.</p>
+                  <p><strong>• Executive Order 9066:</strong> Authorized the mandatory relocation and internment of over 120,000 Japanese Americans during WWII.</p>
+                  <p><strong>• Cold War Doctrines & Policies:</strong></p>
+                  <ul class="list-disc pl-5 space-y-1 text-[11px] text-slate-600">
+                    <li><strong>Containment:</strong> Strategic foreign policy designed to block the international spread of Soviet communism.</li>
+                    <li><strong>Truman Doctrine (1947):</strong> Pledged economic and military aid to nations resisting communist subversion.</li>
+                    <li><strong>Marshall Plan:</strong> Massive economic assistance program to rebuild Western European economies post-WWII.</li>
+                    <li><strong>Korean War (1950–1953):</strong> Cold War proxy conflict fought to stop North Korean communist invasion across the 38th Parallel.</li>
+                    <li><strong>Cuban Missile Crisis (1962):</strong> 13-day tense nuclear confrontation between the U.S. and USSR over Soviet missiles in Cuba.</li>
+                    <li><strong>Fall of the Berlin Wall (1989):</strong> Symbolized the collapse of Eastern European communism and the impending end of the Cold War.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition">
+                <summary class="flex justify-between items-center p-4 cursor-pointer text-xs sm:text-sm font-bold text-slate-900 group-open:bg-slate-100 group-open:text-brand-600">
+                  <span class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-[11px] flex items-center justify-center font-bold">7</span>
+                    Civil Rights Movement, Modern Era & Landmark Supreme Court Cases
+                  </span>
+                  <i class="fas fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
+                </summary>
+                <div class="p-4 sm:p-5 text-xs text-slate-700 border-t border-slate-200 bg-white space-y-3 leading-relaxed">
+                  <p><strong>• Civil Rights Legislation & Milestones:</strong></p>
+                  <ul class="list-disc pl-5 space-y-1 text-[11px] text-slate-600">
+                    <li><strong>Civil Rights Act of 1964:</strong> Banned discrimination in public accommodations, employment, and federally funded programs.</li>
+                    <li><strong>Voting Rights Act of 1965:</strong> Outlawed discriminatory voting hurdles like literacy tests.</li>
+                    <li><strong>Dr. Martin Luther King Jr.:</strong> Led nonviolent protests; delivered "I Have a Dream" speech in 1963.</li>
+                  </ul>
+                  <div class="bg-slate-900 text-white p-3.5 rounded-lg space-y-2 text-[11px] mt-2">
+                    <div class="font-bold text-brand-300 uppercase tracking-wide"><i class="fas fa-gavel text-brand-500"></i> Essential Supreme Court Precedents:</div>
+                    <div><strong>Marbury v. Madison (1803):</strong> Established Judicial Review.</div>
+                    <div><strong>Plessy v. Ferguson (1896):</strong> Upheld segregation under "separate but equal".</div>
+                    <div><strong>Brown v. Board of Education (1954):</strong> Overturned Plessy; ruled public school segregation unconstitutional.</div>
+                    <div><strong>Miranda v. Arizona (1966):</strong> Ruled police must inform suspects of rights (silence, legal counsel) prior to interrogation.</div>
+                  </div>
+                  <p><strong>• Watergate Scandal (1972–1974):</strong> Political break-in and cover-up that led directly to President Richard Nixon's resignation.</p>
+                  <p><strong>• Reaganomics:</strong> 1980s supply-side economic policy emphasizing tax cuts, deregulation, and reduced domestic spending.</p>
+                  <p><strong>• Department of Homeland Security:</strong> Created in 2002 to coordinate national counterterrorism efforts following the 9/11 attacks.</p>
+                  <p><strong>• Key Constitutional Concepts:</strong> <em>Impeachment</em> (House charges federal official with misconduct), <em>Due Process</em> (guarantee of legal fairness), <em>Rule of Law</em> (all individuals/officials are subject to law), and the <strong>26th Amendment (1971)</strong> (lowered voting age to 18).</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <main id="screen-assessment" class="hidden flex-grow flex flex-col max-w-7xl mx-auto w-full p-4 sm:p-6 gap-6">
+      
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm sticky top-16 z-30">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-600 font-bold text-sm shadow-sm" id="avatar-initials">
+              MS
+            </div>
+            <div>
+              <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">GED Candidate</div>
+              <div class="text-sm font-bold text-slate-900" id="display-student-name">Student Name</div>
+            </div>
+          </div>
+
+          <div class="flex-1 max-w-md min-w-[200px]">
+            <div class="flex justify-between text-xs font-medium mb-1.5">
+              <span class="text-slate-500">Progress</span>
+              <span class="text-brand-600 font-semibold" id="progress-text">0 of 50 Answered (0%)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden border border-slate-200">
+              <div id="progress-bar" class="bg-brand-500 h-full w-0 transition-all duration-300"></div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="bg-slate-50 border border-slate-200 px-4 py-1.5 rounded-xl text-center min-w-[110px]">
+              <div class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Time Left</div>
+              <div id="timer-display" class="font-mono text-lg font-extrabold text-slate-900">90:00</div>
+            </div>
+            <button onclick="confirmSubmit()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+              <i class="fas fa-paper-plane"></i>
+              <span class="hidden sm:inline">Submit Test</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
+        
+        <div class="lg:col-span-8 flex flex-col">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm flex-grow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                  <span id="question-number-badge" class="bg-brand-50 text-brand-600 border border-brand-200 text-xs font-bold px-3 py-1 rounded-full">
+                    Item 1 of 50
+                  </span>
+                  <span id="question-type-badge" class="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded-full border border-slate-200">
+                    Multiple Choice
+                  </span>
+                </div>
+                <span id="question-concept-badge" class="text-xs text-slate-500 italic">
+                  Domain: Early Republic
+                </span>
+              </div>
+
+              <div id="question-text" class="text-slate-900 font-semibold text-base sm:text-lg mb-6 leading-relaxed">
+                Loading test item...
+              </div>
+
+              <div id="question-input-area" class="space-y-3 mb-6">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-6 mt-6">
+              <button id="btn-prev" onclick="navigateQuestion(-1)" class="bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 border border-slate-200">
+                <i class="fas fa-chevron-left"></i> Previous
+              </button>
+              <div class="text-xs text-slate-400 hidden sm:block">Standardized GED Social Studies Pattern</div>
+              <button id="btn-next" onclick="navigateQuestion(1)" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
+                Next <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-40">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                <i class="fas fa-th text-brand-600"></i> Item Palette
+              </h4>
+              <span class="text-[11px] text-slate-400">50 Test Items</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-[11px] text-slate-500 mb-4 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-brand-500 border border-brand-600"></span> Active
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-emerald-100 border border-emerald-400"></span> Saved
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-slate-50 border border-slate-300"></span> Pending
+              </div>
+            </div>
+
+            <div id="palette-grid" class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto pr-1">
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <main id="screen-results" class="hidden flex-grow max-w-5xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
+      
+      <div id="submission-status" class="hidden"></div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm print-card">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center md:text-left">
+            <span class="bg-brand-50 text-brand-600 border border-brand-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">GED Official Readiness Scorecard</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" id="res-student-name">Candidate Name</h2>
+            <p class="text-xs text-slate-500">Instructor: Ms. Maria | Subject: GED US History Session</p>
+            <p class="text-xs text-slate-400" id="res-date">Submitted on: --</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center bg-slate-50 border border-slate-200 rounded-2xl p-6 min-w-[210px]">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Final Raw Score</div>
+            <div class="text-4xl font-extrabold text-brand-600 mb-1" id="res-score-number">0 / 50</div>
+            <div class="text-sm font-semibold text-slate-700 mb-2" id="res-percentage">0%</div>
+            <div id="res-status-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              --
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-slate-100 text-center">
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div class="text-[10px] text-slate-400 uppercase font-bold">Passing Benchmark</div>
+            <div class="text-sm font-bold text-slate-800">75% (38/50)</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div class="text-[10px] text-slate-400 uppercase font-bold">Elapsed Duration</div>
+            <div class="text-sm font-bold text-slate-800" id="res-time-spent">00:00</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div class="text-[10px] text-slate-400 uppercase font-bold">Correct Responses</div>
+            <div class="text-sm font-bold text-emerald-600" id="res-correct-count">0</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div class="text-[10px] text-slate-400 uppercase font-bold">Incorrect / Omitted</div>
+            <div class="text-sm font-bold text-rose-600" id="res-incorrect-count">0</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 mt-6 pt-6 border-t border-slate-100 no-print justify-end">
+          <button onclick="window.print()" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs px-5 py-3 rounded-xl transition flex items-center gap-2 border border-slate-300 shadow-sm">
+            <i class="fas fa-print"></i> Print Scorecard
+          </button>
+          <button onclick="retakeTest()" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-sm">
+            <i class="fas fa-redo"></i> Retake Test
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm print-card space-y-6">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i class="fas fa-list-check text-brand-600"></i> Complete 50-Item Pedagogical Breakdown
+          </h3>
+          <p class="text-xs text-slate-500 mt-1">Review explanations directly aligned with your master study reviewer.</p>
+        </div>
+
+        <div id="itemized-breakdown-container" class="space-y-4">
+          </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    // ==========================================
+    // TIME LOCK CONFIGURATION (DOHA TIME UTC+3)
+    // Target: September 1, 2026 16:30:00 AST (+03:00)
+    // ==========================================
+    const UNLOCK_TIMESTAMP = new Date('2026-09-01T16:30:00+03:00').getTime();
+
+    function initTimeLock() {
+      const checkLock = () => {
+        const now = new Date().getTime();
+        const diff = UNLOCK_TIMESTAMP - now;
+
+        if (diff <= 0) {
+          // Unlocked! Show application screens
+          document.getElementById('screen-locked').classList.add('hidden');
+          document.getElementById('app-header').classList.remove('hidden');
+          document.getElementById('screen-registration').classList.remove('hidden');
+          return true;
+        } else {
+          // Locked! Update countdown display
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+          const hStr = String(hours).padStart(2, '0');
+          const mStr = String(mins).padStart(2, '0');
+          const sStr = String(secs).padStart(2, '0');
+
+          document.getElementById('lock-countdown-display').innerText = `${hStr}h ${mStr}m ${sStr}s`;
+          return false;
+        }
+      };
+
+      if (!checkLock()) {
+        const lockInterval = setInterval(() => {
+          if (checkLock()) {
+            clearInterval(lockInterval);
+          }
+        }, 1000);
+      }
+    }
+
+    // Initialize lock check immediately on page load
+    window.addEventListener('DOMContentLoaded', initTimeLock);
+
+    // ==========================================
+    // COMPLETE 50 GED QUESTION DATASET
+    // ==========================================
+    const questions = [
+      // MODULE 1: Colonial Era & Constitutional Foundations (1-7)
+      {
+        id: 1,
+        type: "mcq",
+        question: "Which document formally declared the 13 American colonies free from British rule in July 1776, citing John Locke's philosophy of natural rights?",
+        options: ["The Articles of Confederation", "The Declaration of Independence", "The U.S. Constitution", "The Bill of Rights"],
+        correctAnswer: "The Declaration of Independence",
+        explanation: "Drafted primarily by Thomas Jefferson, the Declaration of Independence grounded American independence in Enlightenment principles of unalienable rights.",
+        concept: "American Revolution"
+      },
+      {
+        id: 2,
+        type: "mcq",
+        question: "What was a major structural weakness of the Articles of Confederation that severely hampered the early national government?",
+        options: ["It established a powerful executive President", "It lacked the authority to levy federal taxes or regulate interstate trade", "It prohibited states from conducting local governance", "It created a strong national judiciary"],
+        correctAnswer: "It lacked the authority to levy federal taxes or regulate interstate trade",
+        explanation: "Under the Articles of Confederation, Congress could not directly tax citizens or regulate interstate commerce, creating economic instability.",
+        concept: "Early Republic"
+      },
+      {
+        id: 3,
+        type: "dropdown",
+        question: "The Great Compromise at the Constitutional Convention of 1787 resolved state representation disputes by establishing a ________ legislature.",
+        options: ["unicameral", "bicameral", "parliamentary", "totalitarian"],
+        correctAnswer: "bicameral",
+        explanation: "The Great Compromise created a bicameral (two-house) Congress: the House of Representatives (based on population) and the Senate (equal representation).",
+        concept: "U.S. Constitution"
+      },
+      {
+        id: 4,
+        type: "fill_in",
+        question: "Which constitutional amendment protects individual rights to speech, religion, press, assembly, and petition?",
+        options: [],
+        correctAnswer: "First Amendment",
+        explanation: "The First Amendment guarantees fundamental personal freedoms against federal government restriction.",
+        concept: "Bill of Rights"
+      },
+      {
+        id: 5,
+        type: "concept_id",
+        question: "Identify the constitutional system in which power is divided between the central national government and individual state governments.",
+        options: ["Federalism", "Separation of Powers", "Popular Sovereignty", "Judicial Review"],
+        correctAnswer: "Federalism",
+        explanation: "Federalism divides governmental authority between federal and state levels.",
+        concept: "Constitutional Principles"
+      },
+      {
+        id: 6,
+        type: "mcq",
+        question: "Which 1786 armed uprising of indebted Massachusetts farmers demonstrated the critical need to revise the Articles of Confederation?",
+        options: ["Whiskey Rebellion", "Shays' Rebellion", "Bacon's Rebellion", "Stono Rebellion"],
+        correctAnswer: "Shays' Rebellion",
+        explanation: "Shays' Rebellion exposed the weakness of the federal government under the Articles in suppressing domestic unrest, convincing leaders to draft a new Constitution.",
+        concept: "Constitutional Origins"
+      },
+      {
+        id: 7,
+        type: "mcq",
+        question: "Presidential vetoes over legislation and Congressional power to override those vetoes are prime examples of which constitutional principle?",
+        options: ["Federal Preemption", "Checks and Balances", "Executive Privilege", "Strict Construction"],
+        correctAnswer: "Checks and Balances",
+        explanation: "Checks and Balances allow each branch of government to limit the powers of the other branches to prevent tyranny.",
+        concept: "Checks and Balances"
+      },
+
+      // MODULE 2: Early Republic & Westward Expansion (8-14)
+      {
+        id: 8,
+        type: "mcq",
+        question: "Which 1803 territorial purchase from France doubled the land size of the United States and secured control of the Mississippi River?",
+        options: ["The Gadsden Purchase", "The Oregon Territory", "The Louisiana Purchase", "The Alaska Purchase"],
+        correctAnswer: "The Louisiana Purchase",
+        explanation: "Thomas Jefferson purchased the Louisiana Territory from France for $15 million, doubling the geographic area of the nation.",
+        concept: "Westward Expansion"
+      },
+      {
+        id: 9,
+        type: "dropdown",
+        question: "Issued in 1823, the ________ declared that the Western Hemisphere was closed to future European colonization.",
+        options: ["Monroe Doctrine", "Truman Doctrine", "Marshall Plan", "Roosevelt Corollary"],
+        correctAnswer: "Monroe Doctrine",
+        explanation: "The Monroe Doctrine established U.S. foreign policy opposing further European colonization or intervention in the Americas.",
+        concept: "Foreign Policy"
+      },
+      {
+        id: 10,
+        type: "fill_in",
+        question: "Which branch of the U.S. federal government is established by Article II of the Constitution and headed by the President to enforce laws?",
+        options: [],
+        correctAnswer: "Executive",
+        explanation: "Article II defines the Executive Branch, responsible for enforcing federal laws passed by Congress.",
+        concept: "Government Structure"
+      },
+      {
+        id: 11,
+        type: "concept_id",
+        question: "Identify the 19th-century ideology asserting that the United States was divinely ordained to expand across North America to the Pacific Ocean.",
+        options: ["Manifest Destiny", "Isolationism", "Imperialism", "Social Darwinism"],
+        correctAnswer: "Manifest Destiny",
+        explanation: "Manifest Destiny was the widespread belief that American territorial expansion across the continent was justified and inevitable.",
+        concept: "Westward Expansion"
+      },
+      {
+        id: 12,
+        type: "mcq",
+        question: "Which landmark Supreme Court decision in 1803 formally established the principle of Judicial Review?",
+        options: ["Dred Scott v. Sandford", "Marbury v. Madison", "McCulloch v. Maryland", "Gibbons v. Ogden"],
+        correctAnswer: "Marbury v. Madison",
+        explanation: "Marbury v. Madison gave the Supreme Court the final power to invalidate legislative and executive acts deemed unconstitutional.",
+        concept: "Judiciary"
+      },
+      {
+        id: 13,
+        type: "mcq",
+        question: "The Missouri Compromise of 1820 prohibited slavery in the Louisiana Territory north of which geographical parallel?",
+        options: ["36°30' Parallel", "49th Parallel", "38th Parallel", "Mason-Dixon Line"],
+        correctAnswer: "36°30' Parallel",
+        explanation: "The Missouri Compromise banned slavery in remaining Louisiana Purchase lands north of latitude 36°30', except within Missouri's borders.",
+        concept: "Sectional Crisis"
+      },
+      {
+        id: 14,
+        type: "dropdown",
+        question: "The Kansas-Nebraska Act of 1854 introduced the policy of ________, allowing territorial voters to decide whether to permit slavery.",
+        options: ["popular sovereignty", "nullification", "executive mandate", "judicial restraint"],
+        correctAnswer: "popular sovereignty",
+        explanation: "Popular sovereignty allowed local voters in territories to determine their slavery status, leading to armed conflict in 'Bleeding Kansas'.",
+        concept: "Sectional Conflict"
+      },
+
+      // MODULE 3: Civil War & Reconstruction (15-21)
+      {
+        id: 15,
+        type: "mcq",
+        question: "What was the fundamental underlying cause of the outbreak of the American Civil War in 1861?",
+        options: ["Disputes over foreign trade tariffs with Britain", "Sectional conflicts over the expansion of slavery and states' rights", "Disagreements regarding federal Indian reservation policies", "Disputes over national banking charters"],
+        correctAnswer: "Sectional conflicts over the expansion of slavery and states' rights",
+        explanation: "The Civil War resulted primarily from long-standing political and economic tensions over slavery and state sovereignty.",
+        concept: "Civil War"
+      },
+      {
+        id: 16,
+        type: "mcq",
+        question: "Abraham Lincoln's 1863 Emancipation Proclamation specifically declared freedom for enslaved people in which areas?",
+        options: ["All slave states, including Union border states", "Only states and territories currently in rebellion against the Union", "Northern industrial states", "Western territories exclusively"],
+        correctAnswer: "Only states and territories currently in rebellion against the Union",
+        explanation: "The Emancipation Proclamation applied specifically to Confederate states in rebellion, turning the war into an explicit crusade against slavery.",
+        concept: "Emancipation"
+      },
+      {
+        id: 17,
+        type: "dropdown",
+        question: "The constitutional amendment that officially abolished slavery across all U.S. states in 1865 is the ________ Amendment.",
+        options: ["13th", "14th", "15th", "19th"],
+        correctAnswer: "13th",
+        explanation: "The 13th Amendment formally banned slavery and involuntary servitude throughout the United States.",
+        concept: "Reconstruction Amendments"
+      },
+      {
+        id: 18,
+        type: "fill_in",
+        question: "Which Reconstruction amendment granted citizenship to all persons born in the U.S. and guaranteed Equal Protection under the law?",
+        options: [],
+        correctAnswer: "14th Amendment",
+        explanation: "The 14th Amendment guaranteed citizenship, due process, and equal legal protection to all persons born or naturalized in the U.S.",
+        concept: "Reconstruction Amendments"
+      },
+      {
+        id: 19,
+        type: "concept_id",
+        question: "Identify the 1870 amendment that prohibited denying citizens the right to vote based on race, color, or previous condition of servitude.",
+        options: ["15th Amendment", "14th Amendment", "19th Amendment", "26th Amendment"],
+        correctAnswer: "15th Amendment",
+        explanation: "The 15th Amendment granted voting rights to adult male citizens regardless of race.",
+        concept: "Voting Rights History"
+      },
+      {
+        id: 20,
+        type: "mcq",
+        question: "Which federal agency was created during Reconstruction to assist formerly enslaved individuals with education, food, and medical care?",
+        options: ["The Southern Relief Agency", "The Freedmen's Bureau", "The Department of Housing", "The Civil Rights Commission"],
+        correctAnswer: "The Freedmen's Bureau",
+        explanation: "The Freedmen's Bureau provided humanitarian assistance and established thousands of schools for Black Americans in the post-Civil War South.",
+        concept: "Reconstruction"
+      },
+      {
+        id: 21,
+        type: "mcq",
+        question: "What was a primary outcome of the Compromise of 1877 that marked the official end of the Reconstruction Era?",
+        options: ["The immediate ratification of the 15th Amendment", "The withdrawal of federal troops from Southern states", "The permanent abolition of state poll taxes", "The annexation of new territories in the Caribbean"],
+        correctAnswer: "The withdrawal of federal troops from Southern states",
+        explanation: "The Compromise of 1877 withdrew federal troops from the South, ending Reconstruction and allowing white Democrats to re-establish control and pass Jim Crow laws.",
+        concept: "End of Reconstruction"
+      },
+
+      // MODULE 4: Industrialization, Progressive Reforms & Imperialism (22-28)
+      {
+        id: 22,
+        type: "mcq",
+        question: "Which 1890 federal law was enacted to prohibit monopolies and anti-competitive business trusts during the Industrial Revolution?",
+        options: ["Clayton Antitrust Act", "Sherman Antitrust Act", "Interstate Commerce Act", "Federal Reserve Act"],
+        correctAnswer: "Sherman Antitrust Act",
+        explanation: "The Sherman Antitrust Act was the first major federal statute curbing corporate monopolies that restrained trade.",
+        concept: "Industrial Era"
+      },
+      {
+        id: 23,
+        type: "dropdown",
+        question: "Progressive Era journalists who exposed unsanitary factory conditions and municipal corruption were termed ________.",
+        options: ["muckrakers", "suffragists", "abolitionists", "isolationists"],
+        correctAnswer: "muckrakers",
+        explanation: "Muckrakers published investigative reports exposing social and industrial abuses, driving public support for reform laws.",
+        concept: "Progressive Era"
+      },
+      {
+        id: 24,
+        type: "fill_in",
+        question: "Which constitutional amendment, ratified in 1920, granted women the right to vote nationwide?",
+        options: [],
+        correctAnswer: "19th Amendment",
+        explanation: "The 19th Amendment prohibited voter disenfranchisement on the basis of sex.",
+        concept: "Women's Suffrage"
+      },
+      {
+        id: 25,
+        type: "concept_id",
+        question: "Identify the 1898 war that marked the emergence of the United States as a global imperial power acquiring overseas territories.",
+        options: ["Spanish-American War", "Mexican-American War", "World War I", "War of 1812"],
+        correctAnswer: "Spanish-American War",
+        explanation: "Victory in the Spanish-American War resulted in the U.S. acquiring Guam, Puerto Rico, and purchasing the Philippines.",
+        concept: "U.S. Imperialism"
+      },
+      {
+        id: 26,
+        type: "mcq",
+        question: "Which tragic 1911 industrial disaster in New York City catalyzed widespread legislation for mandatory workplace safety standards and fire codes?",
+        options: ["Haymarket Square Riot", "Homestead Strike", "Triangle Shirtwaist Factory Fire", "Pullman Strike"],
+        correctAnswer: "Triangle Shirtwaist Factory Fire",
+        explanation: "The Triangle Shirtwaist Fire killed 146 garment workers due to locked exit doors, spurring strict factory safety legislation.",
+        concept: "Labor & Reform"
+      },
+      {
+        id: 27,
+        type: "mcq",
+        question: "President Theodore Roosevelt's domestic program focusing on trust-busting, consumer protection, and natural conservation was known as what?",
+        options: ["The New Deal", "The Square Deal", "The Great Society", "The New Frontier"],
+        correctAnswer: "The Square Deal",
+        explanation: "Roosevelt's Square Deal sought to balance fairness for consumers, business owners, and labor workers.",
+        concept: "Progressive Presidents"
+      },
+      {
+        id: 28,
+        type: "dropdown",
+        question: "Upton Sinclair's 1906 novel *The Jungle* exposed shocking conditions in the Chicago ________ industry, leading to federal regulation.",
+        options: ["meatpacking", "textile", "steel production", "coal mining"],
+        correctAnswer: "meatpacking",
+        explanation: "Sinclair's exposure of meatpacking contamination directly led to President Roosevelt passing the Pure Food and Drug Act of 1906.",
+        concept: "Muckraking Impacts"
+      },
+
+      // MODULE 5: World War I, Great Depression & New Deal (29-35)
+      {
+        id: 29,
+        type: "mcq",
+        question: "What was a primary factor that compelled the United States to declare war on Germany and enter World War I in 1917?",
+        options: ["The German invasion of France", "Unrestricted German submarine warfare targeting merchant ships", "The Bolshevik Revolution in Russia", "The bombing of Pearl Harbor"],
+        correctAnswer: "Unrestricted German submarine warfare targeting merchant ships",
+        explanation: "Germany's resumption of unrestricted submarine attacks on American vessels led President Woodrow Wilson to ask Congress for a war declaration.",
+        concept: "World War I"
+      },
+      {
+        id: 30,
+        type: "mcq",
+        question: "Why did the U.S. Senate reject joining the League of Nations proposed in Woodrow Wilson's Fourteen Points after WWI?",
+        options: ["Senators wanted to join a military alliance with Germany instead", "Senators feared it would entangle the U.S. in future foreign conflicts and undermine Congressional war powers", "The League refused to grant membership to democratic states", "The U.S. economy was too weak to fund international organizations"],
+        correctAnswer: "Senators feared it would entangle the U.S. in future foreign conflicts and undermine Congressional war powers",
+        explanation: "Isolationist senators rejected the League of Nations treaty to maintain national sovereignty and avoid European entanglements.",
+        concept: "WWI Peace Settlement"
+      },
+      {
+        id: 31,
+        type: "fill_in",
+        question: "What major stock market collapse on October 29, 1929 ('Black Tuesday') signaled the start of the Great Depression?",
+        options: [],
+        correctAnswer: "Stock Market Crash",
+        explanation: "The Wall Street Crash of 1929 triggered a decade of severe global economic contraction.",
+        concept: "Great Depression"
+      },
+      {
+        id: 32,
+        type: "concept_id",
+        question: "Identify President Franklin D. Roosevelt's federal initiative designed to counter the Great Depression through Relief, Recovery, and Reform.",
+        options: ["The New Deal", "The Great Society", "The Fair Deal", "Reaganomics"],
+        correctAnswer: "The New Deal",
+        explanation: "FDR's New Deal created federal agencies to rebuild the nation's financial systems and provide jobs.",
+        concept: "New Deal"
+      },
+      {
+        id: 33,
+        type: "dropdown",
+        question: "Passed in 1935, the ________ Act created a federal pension system for retirees, funded by worker payroll taxes.",
+        options: ["Social Security", "Wagner", "Glass-Steagall", "Taft-Hartley"],
+        correctAnswer: "Social Security",
+        explanation: "The Social Security Act established lasting federal financial safety nets for elderly and unemployed Americans.",
+        concept: "New Deal Legislation"
+      },
+      {
+        id: 34,
+        type: "mcq",
+        question: "Which ecological catastrophe during the 1930s destroyed agricultural crops across the American Great Plains, forcing mass migration to California?",
+        options: ["The Great Mississippi Flood", "The Dust Bowl", "The Great Chicago Fire", "The San Francisco Earthquake"],
+        correctAnswer: "The Dust Bowl",
+        explanation: "Severe drought combined with poor soil conservation caused massive dust storms that devastated Great Plains farming.",
+        concept: "1930s Environmental History"
+      },
+      {
+        id: 35,
+        type: "mcq",
+        question: "What New Deal agency was created to restore public confidence in commercial banks by insuring individual deposits?",
+        options: ["FDIC (Federal Deposit Insurance Corporation)", "SEC (Securities and Exchange Commission)", "WPA (Works Progress Administration)", "CCC (Civilian Conservation Corps)"],
+        correctAnswer: "FDIC (Federal Deposit Insurance Corporation)",
+        explanation: "The FDIC insured personal bank deposits up to a set amount, ending the widespread bank panics of the early 1930s.",
+        concept: "Banking Reforms"
+      },
+
+      // MODULE 6: World War II & Cold War Geopolitics (36-43)
+      {
+        id: 36,
+        type: "mcq",
+        question: "Which event directly provoked the United States to abandon its official policy of neutrality and enter World War II in December 1941?",
+        options: ["The German invasion of Poland", "The Japanese surprise attack on Pearl Harbor", "The Battle of Stalingrad", "The signing of the Tripartite Pact"],
+        correctAnswer: "The Japanese surprise attack on Pearl Harbor",
+        explanation: "Japan's attack on Pearl Harbor, Hawaii, on December 7, 1941, led Congress to declare war on Japan the following day.",
+        concept: "World War II"
+      },
+      {
+        id: 37,
+        type: "mcq",
+        question: "President Franklin Roosevelt's Executive Order 9066 during World War II authorized which controversial domestic action?",
+        options: ["Drafter registration for female defense factory workers", "Forced relocation and internment of Japanese Americans", "Nationalizing steel mills for military production", "Banning labor union strikes in defense sectors"],
+        correctAnswer: "Forced relocation and internment of Japanese Americans",
+        explanation: "Executive Order 9066 led to the forcible relocation of over 120,000 Japanese Americans to remote internment camps.",
+        concept: "WWII Home Front"
+      },
+      {
+        id: 38,
+        type: "dropdown",
+        question: "The foreign policy strategy adopted by the U.S. during the Cold War to prevent the international spread of Soviet communism was known as ________.",
+        options: ["containment", "appeasement", "detente", "isolationism"],
+        correctAnswer: "containment",
+        explanation: "Containment guided American foreign policy throughout the Cold War, leading to economic aid programs and military interventions.",
+        concept: "Cold War Strategy"
+      },
+      {
+        id: 39,
+        type: "fill_in",
+        question: "What post-WWII American economic program provided over $13 billion in aid to rebuild Western European economies and resist communism?",
+        options: [],
+        correctAnswer: "Marshall Plan",
+        explanation: "The Marshall Plan stabilized Western European nations economically to prevent communist political movements from gaining ground.",
+        concept: "Cold War Economics"
+      },
+      {
+        id: 40,
+        type: "concept_id",
+        question: "Identify the 1947 presidential foreign policy declaration offering U.S. military and economic support to any country resisting communist subversion.",
+        options: ["Truman Doctrine", "Monroe Doctrine", "Eisenhower Doctrine", "Nixon Doctrine"],
+        correctAnswer: "Truman Doctrine",
+        explanation: "The Truman Doctrine pledged aid to free nations threatened by totalitarian regimes, initially assisting Greece and Turkey.",
+        concept: "Cold War Doctrines"
+      },
+      {
+        id: 41,
+        type: "mcq",
+        question: "The October 1962 13-day diplomatic standoff brought the U.S. and USSR closest to nuclear war over the installation of Soviet nuclear missiles where?",
+        options: ["East Berlin", "Cuba", "Vietnam", "Turkey"],
+        correctAnswer: "Cuba",
+        explanation: "The Cuban Missile Crisis occurred when U.S. reconnaissance discovered Soviet nuclear missile sites 90 miles off Florida in Cuba.",
+        concept: "Cold War Crises"
+      },
+      {
+        id: 42,
+        type: "mcq",
+        question: "The Korean War (1950–1953) began when communist North Korean forces invaded South Korea by crossing which boundary line?",
+        options: ["38th Parallel", "17th Parallel", "Berlin Wall", "Yalu River"],
+        correctAnswer: "38th Parallel",
+        explanation: "North Korea crossed the 38th Parallel in June 1950, sparking a United Nations military intervention led by the United States.",
+        concept: "Korean War"
+      },
+      {
+        id: 43,
+        type: "dropdown",
+        question: "The November 1989 destruction of the ________ Wall symbolized the collapse of European communism and the approaching end of the Cold War.",
+        options: ["Berlin", "Warsaw", "Iron", "Maginot"],
+        correctAnswer: "Berlin",
+        explanation: "The opening of the Berlin Wall heralded the reunification of Germany and the dissolution of Soviet hegemony in Eastern Europe.",
+        concept: "End of Cold War"
+      },
+
+      // MODULE 7: Civil Rights, Modern Era & Supreme Court Precedents (44-50)
+      {
+        id: 44,
+        type: "mcq",
+        question: "Which landmark 1954 Supreme Court case declared state laws establishing separate public schools for Black and white students unconstitutional?",
+        options: ["Plessy v. Ferguson", "Brown v. Board of Education", "Gideon v. Wainwright", "Miranda v. Arizona"],
+        correctAnswer: "Brown v. Board of Education",
+        explanation: "Brown v. Board of Education overturned Plessy v. Ferguson, ruling that racially segregated educational facilities are inherently unequal.",
+        concept: "Civil Rights Precedents"
+      },
+      {
+        id: 45,
+        type: "dropdown",
+        question: "Signed by President Lyndon Johnson, the Civil Rights Act of ________ outlawed racial discrimination in employment and public accommodations.",
+        options: ["1964", "1954", "1972", "1980"],
+        correctAnswer: "1964",
+        explanation: "The landmark Civil Rights Act of 1964 prohibited discrimination based on race, color, religion, sex, or national origin.",
+        concept: "Civil Rights Legislation"
+      },
+      {
+        id: 46,
+        type: "fill_in",
+        question: "Which 1965 law banned discriminatory voting requirements like literacy tests that disenfranchised Black voters in the South?",
+        options: [],
+        correctAnswer: "Voting Rights Act",
+        explanation: "The Voting Rights Act of 1965 enforced the 15th Amendment by eliminating literacy tests and providing federal oversight of voter registration.",
+        concept: "Voting Rights"
+      },
+      {
+        id: 47,
+        type: "concept_id",
+        question: "Identify the Supreme Court precedent requiring law enforcement officers to inform criminal suspects of their constitutional rights to silence and legal counsel prior to police interrogation.",
+        options: ["Miranda v. Arizona", "Marbury v. Madison", "Roe v. Wade", "Mapp v. Ohio"],
+        correctAnswer: "Miranda v. Arizona",
+        explanation: "Miranda v. Arizona established that suspects must be warned of their 5th and 6th Amendment rights before police questioning.",
+        concept: "Constitutional Rights"
+      },
+      {
+        id: 48,
+        type: "mcq",
+        question: "Which political scandal involving a break-in at the Democratic National Committee headquarters led directly to President Richard Nixon's resignation in 1974?",
+        options: ["Iran-Contra Affair", "Teapot Dome Scandal", "Watergate Scandal", "Whitewater Affair"],
+        correctAnswer: "Watergate Scandal",
+        explanation: "The Watergate break-in and subsequent executive cover-up led to Congressional impeachment proceedings and President Nixon's resignation.",
+        concept: "U.S. Political History"
+      },
+      {
+        id: 49,
+        type: "mcq",
+        question: "Which federal cabinet-level department was created in 2002 to coordinate national defense against domestic security threats following September 11, 2001?",
+        options: ["Department of Veterans Affairs", "Department of Homeland Security", "Department of Defense", "Department of Justice"],
+        correctAnswer: "Department of Homeland Security",
+        explanation: "The Department of Homeland Security consolidated 22 federal agencies to streamline national defense and counterterrorism efforts post-9/11.",
+        concept: "Modern Era Security"
+      },
+      {
+        id: 50,
+        type: "mcq",
+        question: "Ratified in 1971 during the Vietnam War era, the 26th Amendment lowered the legal U.S. voting age from 21 to what age?",
+        options: ["16", "18", "19", "20"],
+        correctAnswer: "18",
+        explanation: "The 26th Amendment lowered the voting age to 18, fueled by arguments that young citizens old enough to be drafted should have voting rights.",
+        concept: "Constitutional Amendments"
+      }
+    ];
+
+    // ==========================================
+    // STATE MANAGEMENT
+    // ==========================================
+    const state = {
+      studentName: "",
+      studentEmail: "",
+      currentIndex: 0,
+      answers: {},
+      timerSeconds: 90 * 60,
+      timerInterval: null,
+      startTime: null,
+      endTime: null,
+      submitted: false
+    };
+
+    // ==========================================
+    // REGISTRATION & INITIALIZATION
+    // ==========================================
+    function validateRegistration() {
+      const name = document.getElementById('input-name').value.trim();
+      const email = document.getElementById('input-email').value.trim();
+      const btn = document.getElementById('btn-start');
+
+      const isValidEmail = email.includes('@') && email.includes('.');
+
+      if (name.length >= 2 && isValidEmail) {
+        btn.disabled = false;
+        btn.className = "w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer";
+      } else {
+        btn.disabled = true;
+        btn.className = "w-full bg-slate-200 text-slate-400 font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 cursor-not-allowed";
+      }
+    }
+
+    function startAssessment() {
+      state.studentName = document.getElementById('input-name').value.trim();
+      state.studentEmail = document.getElementById('input-email').value.trim();
+      state.startTime = new Date();
+
+      document.getElementById('display-student-name').innerText = state.studentName;
+      const initials = state.studentName.split(' ').map(n => n[0]).join('').toUpperCase().substring(0,2) || 'MS';
+      document.getElementById('avatar-initials').innerText = initials;
+
+      document.getElementById('screen-registration').classList.add('hidden');
+      document.getElementById('screen-assessment').classList.remove('hidden');
+
+      renderPalette();
+      renderQuestion(0);
+      startTimer();
+    }
+
+    // ==========================================
+    // TIMER ENGINE
+    // ==========================================
+    function startTimer() {
+      updateTimerDisplay();
+      state.timerInterval = setInterval(() => {
+        state.timerSeconds--;
+        updateTimerDisplay();
+
+        if (state.timerSeconds <= 0) {
+          clearInterval(state.timerInterval);
+          alert("Time limit reached. Auto-submitting assessment session.");
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(state.timerSeconds / 60);
+      const seconds = state.timerSeconds % 60;
+      const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      const timerEl = document.getElementById('timer-display');
+      timerEl.innerText = formatted;
+
+      if (state.timerSeconds < 300) {
+        timerEl.className = "font-mono text-lg font-extrabold text-rose-600 animate-pulse";
+      }
+    }
+
+    // ==========================================
+    // PALETTE & PROGRESS
+    // ==========================================
+    function renderPalette() {
+      const grid = document.getElementById('palette-grid');
+      grid.innerHTML = "";
+
+      questions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => jumpToQuestion(idx);
+        
+        let statusStyle = "bg-slate-50 border-slate-300 text-slate-600 hover:border-slate-400 hover:bg-slate-100";
+        
+        if (state.answers[idx] !== undefined && state.answers[idx] !== "") {
+          statusStyle = "bg-emerald-100 border-emerald-400 text-emerald-800 font-semibold";
+        }
+        
+        if (idx === state.currentIndex) {
+          statusStyle = "bg-brand-500 text-white font-bold border-brand-600 ring-2 ring-brand-200";
+        }
+
+        btn.className = `w-8 h-8 rounded-lg border text-[11px] flex items-center justify-center transition-all ${statusStyle}`;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answeredCount = Object.keys(state.answers).filter(k => state.answers[k] !== "").length;
+      const pct = Math.round((answeredCount / questions.length) * 100);
+      
+      document.getElementById('progress-text').innerText = `${answeredCount} of ${questions.length} Answered (${pct}%)`;
+      document.getElementById('progress-bar').style.width = `${pct}%`;
+    }
+
+    // ==========================================
+    // QUESTION RENDER LOGIC
+    // ==========================================
+    function renderQuestion(index) {
+      state.currentIndex = index;
+      const q = questions[index];
+
+      document.getElementById('btn-prev').disabled = (index === 0);
+      document.getElementById('btn-next').innerText = (index === questions.length - 1) ? "Submit Test" : "Next";
+
+      document.getElementById('question-number-badge').innerText = `Item ${index + 1} of ${questions.length}`;
+      document.getElementById('question-type-badge').innerText = formatTypeLabel(q.type);
+      document.getElementById('question-concept-badge').innerText = `Domain: ${q.concept}`;
+      document.getElementById('question-text').innerText = q.question;
+
+      const container = document.getElementById('question-input-area');
+      container.innerHTML = "";
+
+      const currentVal = state.answers[index] || "";
+
+      if (q.type === 'mcq' || q.type === 'concept_id') {
+        q.options.forEach((opt) => {
+          const isSelected = (currentVal === opt);
+          const optionCard = document.createElement('label');
+          optionCard.className = `flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
+            isSelected 
+              ? 'bg-brand-50/70 border-brand-500 text-slate-900 ring-1 ring-brand-500' 
+              : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+          }`;
+
+          optionCard.innerHTML = `
+            <input type="radio" name="question-${index}" value="${escapeHtml(opt)}" ${isSelected ? 'checked' : ''} 
+              onchange="saveAnswer(${index}, this.value)" class="hidden">
+            <div class="w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center ${isSelected ? 'border-brand-500 bg-brand-500' : ''}">
+              ${isSelected ? '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>' : ''}
+            </div>
+            <span class="text-sm font-medium">${opt}</span>
+          `;
+          container.appendChild(optionCard);
+        });
+      } else if (q.type === 'dropdown') {
+        const selectWrapper = document.createElement('div');
+        selectWrapper.className = "relative max-w-md";
+        
+        let optionsHTML = `<option value="" disabled ${currentVal === "" ? 'selected' : ''}>-- Select the correct term --</option>`;
+        q.options.forEach(opt => {
+          optionsHTML += `<option value="${escapeHtml(opt)}" ${currentVal === opt ? 'selected' : ''}>${opt}</option>`;
+        });
+
+        selectWrapper.innerHTML = `
+          <select onchange="saveAnswer(${index}, this.value)" 
+            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition appearance-none">
+            ${optionsHTML}
+          </select>
+          <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-400">
+            <i class="fas fa-chevron-down text-xs"></i>
+          </div>
+        `;
+        container.appendChild(selectWrapper);
+      } else if (q.type === 'fill_in') {
+        const inputWrapper = document.createElement('div');
+        inputWrapper.className = "max-w-md space-y-2";
+        inputWrapper.innerHTML = `
+          <input type="text" value="${escapeHtml(currentVal)}" placeholder="Type answer..." 
+            oninput="saveAnswer(${index}, this.value)"
+            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+          <p class="text-[11px] text-slate-400 italic">Enter key historical terms or numbers accurately.</p>
+        `;
+        container.appendChild(inputWrapper);
+      }
+
+      renderPalette();
+    }
+
+    function formatTypeLabel(type) {
+      switch(type) {
+        case 'mcq': return 'Multiple Choice';
+        case 'dropdown': return 'Dropdown Select';
+        case 'fill_in': return 'Fill-in-the-Blank';
+        case 'concept_id': return 'Concept ID';
+        default: return 'GED Item';
+      }
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/"/g, '&quot;');
+    }
+
+    function saveAnswer(index, val) {
+      state.answers[index] = val;
+      renderPalette();
+    }
+
+    function jumpToQuestion(index) {
+      renderQuestion(index);
+    }
+
+    function navigateQuestion(direction) {
+      const nextIdx = state.currentIndex + direction;
+      if (nextIdx >= questions.length) {
+        confirmSubmit();
+      } else if (nextIdx >= 0) {
+        renderQuestion(nextIdx);
+      }
+    }
+
+    function confirmSubmit() {
+      const unanswered = questions.length - Object.keys(state.answers).filter(k => state.answers[k] !== "").length;
+      let msg = "Confirm final test submission?";
+      if (unanswered > 0) {
+        msg = `You have ${unanswered} unanswered item(s). Are you sure you want to submit?`;
+      }
+      if (confirm(msg)) {
+        submitExam();
+      }
+    }
+
+    // ==========================================
+    // GRADING & RESULT EVALUATION
+    // ==========================================
+    function checkIsCorrect(q, userAns) {
+      if (!userAns) return false;
+      const cleanUser = String(userAns).trim().toLowerCase();
+      const cleanCorrect = String(q.correctAnswer).trim().toLowerCase();
+
+      if (q.type === 'fill_in') {
+        return cleanUser === cleanCorrect || cleanUser.includes(cleanCorrect) || cleanCorrect.includes(cleanUser);
+      }
+      return cleanUser === cleanCorrect;
+    }
+
+    function submitExam() {
+      if (state.submitted) return;
+      state.submitted = true;
+      state.endTime = new Date();
+      clearInterval(state.timerInterval);
+
+      let score = 0;
+      questions.forEach((q, idx) => {
+        if (checkIsCorrect(q, state.answers[idx])) {
+          score++;
+        }
+      });
+
+      const percentage = Math.round((score / questions.length) * 100);
+      const passed = percentage >= 75;
+      const totalSeconds = Math.round((state.endTime - state.startTime) / 1000);
+      const minsSpent = Math.floor(totalSeconds / 60);
+      const secsSpent = totalSeconds % 60;
+      const timeSpentFormatted = `${minsSpent}m ${secsSpent}s`;
+
+      document.getElementById('res-student-name').innerText = state.studentName;
+      document.getElementById('res-date').innerText = `Submitted on: ${state.endTime.toLocaleString()}`;
+      document.getElementById('res-score-number').innerText = `${score} / ${questions.length}`;
+      document.getElementById('res-percentage').innerText = `${percentage}% Overall Grade`;
+      
+      const badge = document.getElementById('res-status-badge');
+      if (passed) {
+        badge.innerText = "STATUS: GED READY (PASS)";
+        badge.className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+      } else {
+        badge.innerText = "STATUS: NEEDS REVIEW";
+        badge.className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-300";
+      }
+
+      document.getElementById('res-time-spent').innerText = timeSpentFormatted;
+      document.getElementById('res-correct-count').innerText = score;
+      document.getElementById('res-incorrect-count').innerText = questions.length - score;
+
+      renderBreakdown();
+
+      document.getElementById('screen-assessment').classList.add('hidden');
+      document.getElementById('screen-results').classList.remove('hidden');
+
+      sendResultsToFormSubmit({
+        Student_Name: state.studentName,
+        Student_Email: state.studentEmail,
+        Score: `${score}/${questions.length}`,
+        Percentage: `${percentage}%`,
+        Status: passed ? "GED READY (PASS)" : "NEEDS REVIEW",
+        Time_Taken: timeSpentFormatted,
+        Submission_Date: state.endTime.toLocaleString()
+      });
+    }
+
+    function renderBreakdown() {
+      const container = document.getElementById('itemized-breakdown-container');
+      container.innerHTML = "";
+
+      questions.forEach((q, idx) => {
+        const userAns = state.answers[idx] || "No Response Provided";
+        const isCorrect = checkIsCorrect(q, state.answers[idx]);
+
+        const card = document.createElement('div');
+        card.className = `p-5 rounded-xl border transition ${
+          isCorrect ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'
+        }`;
+
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                isCorrect ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'
+              }">${idx + 1}</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">${q.concept}</span>
+            </div>
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${
+              isCorrect ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300'
+            }">
+              ${isCorrect ? 'CORRECT' : 'INCORRECT'}
+            </span>
+          </div>
+
+          <p class="text-sm font-semibold text-slate-900 mb-3">${q.question}</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-3">
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+              <span class="text-slate-400 block text-[10px] uppercase font-bold">Your Response</span>
+              <span class="${isCorrect ? 'text-emerald-700 font-semibold' : 'text-rose-700 font-semibold'}">${userAns}</span>
+            </div>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+              <span class="text-slate-400 block text-[10px] uppercase font-bold">Correct GED Answer</span>
+              <span class="text-emerald-700 font-semibold">${q.correctAnswer}</span>
+            </div>
+          </div>
+
+          <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 leading-relaxed">
+            <strong class="text-brand-600 font-semibold block mb-0.5"><i class="fas fa-lightbulb"></i> Pedagogical Rationale:</strong>
+            ${q.explanation}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // ==========================================
+    // FORMSUBMIT NOTIFICATION DISPATCH
+    // ==========================================
+    async function sendResultsToFormSubmit(payloadData) {
+      const statusDiv = document.getElementById('submission-status');
+      statusDiv.classList.remove('hidden');
+      statusDiv.className = "p-4 rounded-xl border text-xs flex items-center gap-3 bg-blue-50 border-blue-200 text-blue-800 mb-6";
+      statusDiv.innerHTML = `<i class="fas fa-circle-notch fa-spin text-base text-blue-600"></i> Dispatching 50-item score report to instructor Ms. Maria (mariaeftongga@gmail.com)...`;
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/mariaeftongga@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: `GED 50-Item US History Practice Score: ${payloadData.Student_Name}`,
+            Student_Name: payloadData.Student_Name,
+            Student_Email: payloadData.Student_Email,
+            Score: payloadData.Score,
+            Percentage: payloadData.Percentage,
+            Status: payloadData.Status,
+            Time_Taken: payloadData.Time_Taken,
+            Submission_Date: payloadData.Submission_Date
+          })
+        });
+
+        if (response.ok) {
+          statusDiv.className = "p-4 rounded-xl border text-xs flex items-center gap-3 bg-emerald-50 border-emerald-200 text-emerald-800 mb-6";
+          statusDiv.innerHTML = `<i class="fas fa-check-circle text-base text-emerald-600"></i> <span>Score report successfully filed and dispatched to <strong>Ms. Maria</strong>.</span>`;
+        } else {
+          throw new Error("Dispatch failed");
+        }
+      } catch (err) {
+        statusDiv.className = "p-4 rounded-xl border text-xs flex items-center gap-3 bg-slate-100 border-slate-300 text-slate-700 mb-6";
+        statusDiv.innerHTML = `<i class="fas fa-info-circle text-base text-slate-500"></i> <span>Scorecard recorded locally. Displayed below for review.</span>`;
+      }
+    }
+
+    // ==========================================
+    // RETAKE RESET
+    // ==========================================
+    function retakeTest() {
+      if (confirm("Restart test session from Item 1?")) {
+        state.currentIndex = 0;
+        state.answers = {};
+        state.timerSeconds = 90 * 60;
+        state.submitted = false;
+        clearInterval(state.timerInterval);
+
+        document.getElementById('screen-results').classList.add('hidden');
+        document.getElementById('screen-registration').classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
