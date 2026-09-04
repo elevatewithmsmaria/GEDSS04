@@ -377,7 +377,7 @@
               <div class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Time Left</div>
               <div id="timer-display" class="font-mono text-lg font-extrabold text-slate-900">90:00</div>
             </div>
-            <button onclick="confirmSubmit()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+            <button onclick="confirmSubmit()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-3 rounded-xl transition shadow-sm flex items-center gap-2 cursor-pointer">
               <i class="fas fa-paper-plane"></i>
               <span class="hidden sm:inline">Submit Test</span>
             </button>
@@ -403,7 +403,7 @@
                 </span>
               </div>
 
-              <div id="question-text" class="text-slate-900 font-semibold text-base sm:text-lg mb-6 leading-relaxed">
+              <div id="question-text" class="text-slate-900 font-semibold text-base sm:lg mb-6 leading-relaxed">
                 Loading test item...
               </div>
 
@@ -411,12 +411,12 @@
             </div>
 
             <div class="flex items-center justify-between border-t border-slate-100 pt-6 mt-6">
-              <button id="btn-prev" onclick="navigateQuestion(-1)" class="bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 border border-slate-200">
+              <button id="btn-prev" onclick="navigateQuestion(-1)" class="bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 border border-slate-200 cursor-pointer">
                 <i class="fas fa-chevron-left"></i> Previous
               </button>
               <div class="text-xs text-slate-400 hidden sm:block">Standardized GED Social Studies Pattern</div>
-              <button id="btn-next" onclick="navigateQuestion(1)" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
-                Next <i class="fas fa-chevron-right"></i>
+              <button id="btn-next" onclick="navigateQuestion(1)" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm cursor-pointer">
+                <span id="btn-next-text">Next</span> <i class="fas fa-chevron-right"></i>
               </button>
             </div>
           </div>
@@ -491,10 +491,10 @@
         </div>
 
         <div class="flex flex-wrap gap-4 mt-6 pt-6 border-t border-slate-100 no-print justify-end">
-          <button onclick="window.print()" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs px-5 py-3 rounded-xl transition flex items-center gap-2 border border-slate-300 shadow-sm">
+          <button onclick="window.print()" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs px-5 py-3 rounded-xl transition flex items-center gap-2 border border-slate-300 shadow-sm cursor-pointer">
             <i class="fas fa-print"></i> Print Scorecard
           </button>
-          <button onclick="retakeTest()" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-sm">
+          <button onclick="retakeTest()" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-sm cursor-pointer">
             <i class="fas fa-redo"></i> Retake Test
           </button>
         </div>
@@ -1052,7 +1052,7 @@
       state.startTime = new Date();
 
       document.getElementById('display-student-name').innerText = state.studentName;
-      const initials = state.studentName.split(' ').map(n => n[0]).join('').toUpperCase().substring(0,2) || 'MS';
+      const initials = state.studentName.split(' ').filter(Boolean).map(n => n[0]).join('').toUpperCase().substring(0, 2) || 'MS';
       document.getElementById('avatar-initials').innerText = initials;
 
       document.getElementById('screen-registration').classList.add('hidden');
@@ -1090,6 +1090,8 @@
 
       if (state.timerSeconds < 300) {
         timerEl.className = "font-mono text-lg font-extrabold text-rose-600 animate-pulse";
+      } else {
+        timerEl.className = "font-mono text-lg font-extrabold text-slate-900";
       }
     }
 
@@ -1115,7 +1117,7 @@
           statusStyle = "bg-brand-500 text-white font-bold border-brand-600 ring-2 ring-brand-200";
         }
 
-        btn.className = `w-8 h-8 rounded-lg border text-[11px] flex items-center justify-center transition-all ${statusStyle}`;
+        btn.className = `w-8 h-8 rounded-lg border text-[11px] flex items-center justify-center transition-all cursor-pointer ${statusStyle}`;
         btn.innerText = idx + 1;
         grid.appendChild(btn);
       });
@@ -1134,12 +1136,17 @@
     // ==========================================
     // QUESTION RENDER LOGIC
     // ==========================================
+    function saveAnswer(index, val) {
+      state.answers[index] = val;
+      renderPalette();
+    }
+
     function renderQuestion(index) {
       state.currentIndex = index;
       const q = questions[index];
 
       document.getElementById('btn-prev').disabled = (index === 0);
-      document.getElementById('btn-next').innerText = (index === questions.length - 1) ? "Submit Test" : "Next";
+      document.getElementById('btn-next-text').innerText = (index === questions.length - 1) ? "Submit Test" : "Next";
 
       document.getElementById('question-number-badge').innerText = `Item ${index + 1} of ${questions.length}`;
       document.getElementById('question-type-badge').innerText = formatTypeLabel(q.type);
@@ -1155,7 +1162,7 @@
         q.options.forEach((opt) => {
           const isSelected = (currentVal === opt);
           const optionCard = document.createElement('label');
-          optionCard.className = `flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
+          optionCard.className = `flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all relative ${
             isSelected 
               ? 'bg-brand-50/70 border-brand-500 text-slate-900 ring-1 ring-brand-500' 
               : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
@@ -1166,17 +1173,20 @@
           radioInput.name = `question-${index}`;
           radioInput.value = opt;
           radioInput.checked = isSelected;
-          radioInput.className = "hidden";
-          radioInput.onchange = (e) => saveAnswer(index, e.target.value);
+          radioInput.className = "sr-only";
+          radioInput.onchange = (e) => {
+            saveAnswer(index, e.target.value);
+            renderQuestion(index);
+          };
 
           const dot = document.createElement('div');
-          dot.className = `w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center ${isSelected ? 'border-brand-500 bg-brand-500' : ''}`;
+          dot.className = `w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center shrink-0 ${isSelected ? 'border-brand-500 bg-brand-500' : ''}`;
           if (isSelected) {
             dot.innerHTML = '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>';
           }
 
           const labelText = document.createElement('span');
-          labelText.className = "text-sm font-medium";
+          labelText.className = "text-sm font-medium select-none";
           labelText.innerText = opt;
 
           optionCard.appendChild(radioInput);
@@ -1189,8 +1199,10 @@
         selectWrapper.className = "relative max-w-md";
         
         const select = document.createElement('select');
-        select.className = "w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition appearance-none";
-        select.onchange = (e) => saveAnswer(index, e.target.value);
+        select.className = "w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition appearance-none cursor-pointer";
+        select.onchange = (e) => {
+          saveAnswer(index, e.target.value);
+        };
 
         const defaultOption = document.createElement('option');
         defaultOption.value = "";
@@ -1223,7 +1235,9 @@
         input.value = currentVal;
         input.placeholder = "Type answer...";
         input.className = "w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition";
-        input.oninput = (e) => saveAnswer(index, e.target.value);
+        input.oninput = (e) => {
+          saveAnswer(index, e.target.value);
+        };
 
         const hint = document.createElement('p');
         hint.className = "text-[11px] text-slate-400 italic";
@@ -1245,11 +1259,6 @@
         case 'concept_id': return 'Concept ID';
         default: return 'GED Item';
       }
-    }
-
-    function saveAnswer(index, val) {
-      state.answers[index] = val;
-      renderPalette();
     }
 
     function jumpToQuestion(index) {
@@ -1413,6 +1422,8 @@
           },
           body: JSON.stringify({
             _subject: `GED 50-Item US History Practice Score: ${payloadData.Student_Name}`,
+            _template: "table",
+            _captcha: "false",
             Student_Name: payloadData.Student_Name,
             Student_Email: payloadData.Student_Email,
             Score: payloadData.Score,
