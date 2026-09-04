@@ -98,7 +98,6 @@
     </header>
 
     <main id="screen-registration" class="hidden flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
-      
       <div class="bg-gradient-to-r from-slate-900 via-navy-900 to-slate-900 text-white border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-md relative overflow-hidden">
         <div class="absolute -right-10 -bottom-10 opacity-10 text-brand-500 pointer-events-none">
           <i class="fas fa-book-open text-[240px]"></i>
@@ -113,9 +112,7 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
         <div class="lg:col-span-4 space-y-6">
-          
           <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-20">
             <h3 class="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
               <i class="fas fa-user-check text-brand-600"></i> Examinee Registration
@@ -173,7 +170,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="lg:col-span-8 space-y-6">
@@ -350,15 +346,12 @@
             </div>
           </div>
         </div>
-
       </div>
     </main>
 
     <main id="screen-assessment" class="hidden flex-grow flex flex-col max-w-7xl mx-auto w-full p-4 sm:p-6 gap-6">
-      
       <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm sticky top-16 z-30">
         <div class="flex flex-wrap items-center justify-between gap-4">
-          
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-600 font-bold text-sm shadow-sm" id="avatar-initials">
               MS
@@ -389,12 +382,10 @@
               <span class="hidden sm:inline">Submit Test</span>
             </button>
           </div>
-
         </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
-        
         <div class="lg:col-span-8 flex flex-col">
           <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm flex-grow flex flex-col justify-between">
             <div>
@@ -416,8 +407,7 @@
                 Loading test item...
               </div>
 
-              <div id="question-input-area" class="space-y-3 mb-6">
-                </div>
+              <div id="question-input-area" class="space-y-3 mb-6"></div>
             </div>
 
             <div class="flex items-center justify-between border-t border-slate-100 pt-6 mt-6">
@@ -453,16 +443,13 @@
               </div>
             </div>
 
-            <div id="palette-grid" class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto pr-1">
-              </div>
+            <div id="palette-grid" class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-1.5 max-h-[380px] overflow-y-auto pr-1"></div>
           </div>
         </div>
-
       </div>
     </main>
 
     <main id="screen-results" class="hidden flex-grow max-w-5xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
-      
       <div id="submission-status" class="hidden"></div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm print-card">
@@ -521,10 +508,8 @@
           <p class="text-xs text-slate-500 mt-1">Review explanations directly aligned with your master study reviewer.</p>
         </div>
 
-        <div id="itemized-breakdown-container" class="space-y-4">
-          </div>
+        <div id="itemized-breakdown-container" class="space-y-4"></div>
       </div>
-
     </main>
 
   </div>
@@ -542,13 +527,11 @@
         const diff = UNLOCK_TIMESTAMP - now;
 
         if (diff <= 0) {
-          // Unlocked! Show application screens
           document.getElementById('screen-locked').classList.add('hidden');
           document.getElementById('app-header').classList.remove('hidden');
           document.getElementById('screen-registration').classList.remove('hidden');
           return true;
         } else {
-          // Locked! Update countdown display
           const hours = Math.floor(diff / (1000 * 60 * 60));
           const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
           const secs = Math.floor((diff % (1000 * 60)) / 1000);
@@ -571,14 +554,12 @@
       }
     }
 
-    // Initialize lock check immediately on page load
     window.addEventListener('DOMContentLoaded', initTimeLock);
 
     // ==========================================
     // COMPLETE 50 GED QUESTION DATASET
     // ==========================================
     const questions = [
-      // MODULE 1: Colonial Era & Constitutional Foundations (1-7)
       {
         id: 1,
         type: "mcq",
@@ -642,8 +623,6 @@
         explanation: "Checks and Balances allow each branch of government to limit the powers of the other branches to prevent tyranny.",
         concept: "Checks and Balances"
       },
-
-      // MODULE 2: Early Republic & Westward Expansion (8-14)
       {
         id: 8,
         type: "mcq",
@@ -707,8 +686,6 @@
         explanation: "Popular sovereignty allowed local voters in territories to determine their slavery status, leading to armed conflict in 'Bleeding Kansas'.",
         concept: "Sectional Conflict"
       },
-
-      // MODULE 3: Civil War & Reconstruction (15-21)
       {
         id: 15,
         type: "mcq",
@@ -772,8 +749,6 @@
         explanation: "The Compromise of 1877 withdrew federal troops from the South, ending Reconstruction and allowing white Democrats to re-establish control and pass Jim Crow laws.",
         concept: "End of Reconstruction"
       },
-
-      // MODULE 4: Industrialization, Progressive Reforms & Imperialism (22-28)
       {
         id: 22,
         type: "mcq",
@@ -837,8 +812,6 @@
         explanation: "Sinclair's exposure of meatpacking contamination directly led to President Roosevelt passing the Pure Food and Drug Act of 1906.",
         concept: "Muckraking Impacts"
       },
-
-      // MODULE 5: World War I, Great Depression & New Deal (29-35)
       {
         id: 29,
         type: "mcq",
@@ -902,8 +875,6 @@
         explanation: "The FDIC insured personal bank deposits up to a set amount, ending the widespread bank panics of the early 1930s.",
         concept: "Banking Reforms"
       },
-
-      // MODULE 6: World War II & Cold War Geopolitics (36-43)
       {
         id: 36,
         type: "mcq",
@@ -917,7 +888,7 @@
         id: 37,
         type: "mcq",
         question: "President Franklin Roosevelt's Executive Order 9066 during World War II authorized which controversial domestic action?",
-        options: ["Drafter registration for female defense factory workers", "Forced relocation and internment of Japanese Americans", "Nationalizing steel mills for military production", "Banning labor union strikes in defense sectors"],
+        options: ["Draft registration for female defense factory workers", "Forced relocation and internment of Japanese Americans", "Nationalizing steel mills for military production", "Banning labor union strikes in defense sectors"],
         correctAnswer: "Forced relocation and internment of Japanese Americans",
         explanation: "Executive Order 9066 led to the forcible relocation of over 120,000 Japanese Americans to remote internment camps.",
         concept: "WWII Home Front"
@@ -976,8 +947,6 @@
         explanation: "The opening of the Berlin Wall heralded the reunification of Germany and the dissolution of Soviet hegemony in Eastern Europe.",
         concept: "End of Cold War"
       },
-
-      // MODULE 7: Civil Rights, Modern Era & Supreme Court Precedents (44-50)
       {
         id: 44,
         type: "mcq",
@@ -1098,6 +1067,7 @@
     // TIMER ENGINE
     // ==========================================
     function startTimer() {
+      clearInterval(state.timerInterval);
       updateTimerDisplay();
       state.timerInterval = setInterval(() => {
         state.timerSeconds--;
@@ -1132,6 +1102,7 @@
 
       questions.forEach((q, idx) => {
         const btn = document.createElement('button');
+        btn.type = "button";
         btn.onclick = () => jumpToQuestion(idx);
         
         let statusStyle = "bg-slate-50 border-slate-300 text-slate-600 hover:border-slate-400 hover:bg-slate-100";
@@ -1190,44 +1161,76 @@
               : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
           }`;
 
-          optionCard.innerHTML = `
-            <input type="radio" name="question-${index}" value="${escapeHtml(opt)}" ${isSelected ? 'checked' : ''} 
-              onchange="saveAnswer(${index}, this.value)" class="hidden">
-            <div class="w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center ${isSelected ? 'border-brand-500 bg-brand-500' : ''}">
-              ${isSelected ? '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>' : ''}
-            </div>
-            <span class="text-sm font-medium">${opt}</span>
-          `;
+          const radioInput = document.createElement('input');
+          radioInput.type = "radio";
+          radioInput.name = `question-${index}`;
+          radioInput.value = opt;
+          radioInput.checked = isSelected;
+          radioInput.className = "hidden";
+          radioInput.onchange = (e) => saveAnswer(index, e.target.value);
+
+          const dot = document.createElement('div');
+          dot.className = `w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center ${isSelected ? 'border-brand-500 bg-brand-500' : ''}`;
+          if (isSelected) {
+            dot.innerHTML = '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>';
+          }
+
+          const labelText = document.createElement('span');
+          labelText.className = "text-sm font-medium";
+          labelText.innerText = opt;
+
+          optionCard.appendChild(radioInput);
+          optionCard.appendChild(dot);
+          optionCard.appendChild(labelText);
           container.appendChild(optionCard);
         });
       } else if (q.type === 'dropdown') {
         const selectWrapper = document.createElement('div');
         selectWrapper.className = "relative max-w-md";
         
-        let optionsHTML = `<option value="" disabled ${currentVal === "" ? 'selected' : ''}>-- Select the correct term --</option>`;
+        const select = document.createElement('select');
+        select.className = "w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition appearance-none";
+        select.onchange = (e) => saveAnswer(index, e.target.value);
+
+        const defaultOption = document.createElement('option');
+        defaultOption.value = "";
+        defaultOption.disabled = true;
+        defaultOption.selected = (currentVal === "");
+        defaultOption.innerText = "-- Select the correct term --";
+        select.appendChild(defaultOption);
+
         q.options.forEach(opt => {
-          optionsHTML += `<option value="${escapeHtml(opt)}" ${currentVal === opt ? 'selected' : ''}>${opt}</option>`;
+          const optEl = document.createElement('option');
+          optEl.value = opt;
+          optEl.innerText = opt;
+          if (currentVal === opt) optEl.selected = true;
+          select.appendChild(optEl);
         });
 
-        selectWrapper.innerHTML = `
-          <select onchange="saveAnswer(${index}, this.value)" 
-            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition appearance-none">
-            ${optionsHTML}
-          </select>
-          <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-400">
-            <i class="fas fa-chevron-down text-xs"></i>
-          </div>
-        `;
+        const chevron = document.createElement('div');
+        chevron.className = "absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-400";
+        chevron.innerHTML = '<i class="fas fa-chevron-down text-xs"></i>';
+
+        selectWrapper.appendChild(select);
+        selectWrapper.appendChild(chevron);
         container.appendChild(selectWrapper);
       } else if (q.type === 'fill_in') {
         const inputWrapper = document.createElement('div');
         inputWrapper.className = "max-w-md space-y-2";
-        inputWrapper.innerHTML = `
-          <input type="text" value="${escapeHtml(currentVal)}" placeholder="Type answer..." 
-            oninput="saveAnswer(${index}, this.value)"
-            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
-          <p class="text-[11px] text-slate-400 italic">Enter key historical terms or numbers accurately.</p>
-        `;
+        
+        const input = document.createElement('input');
+        input.type = "text";
+        input.value = currentVal;
+        input.placeholder = "Type answer...";
+        input.className = "w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition";
+        input.oninput = (e) => saveAnswer(index, e.target.value);
+
+        const hint = document.createElement('p');
+        hint.className = "text-[11px] text-slate-400 italic";
+        hint.innerText = "Enter key historical terms or numbers accurately.";
+
+        inputWrapper.appendChild(input);
+        inputWrapper.appendChild(hint);
         container.appendChild(inputWrapper);
       }
 
@@ -1242,10 +1245,6 @@
         case 'concept_id': return 'Concept ID';
         default: return 'GED Item';
       }
-    }
-
-    function escapeHtml(str) {
-      return str.replace(/"/g, '&quot;');
     }
 
     function saveAnswer(index, val) {
@@ -1306,7 +1305,7 @@
 
       const percentage = Math.round((score / questions.length) * 100);
       const passed = percentage >= 75;
-      const totalSeconds = Math.round((state.endTime - state.startTime) / 1000);
+      const totalSeconds = Math.max(0, Math.round((state.endTime - state.startTime) / 1000));
       const minsSpent = Math.floor(totalSeconds / 60);
       const secsSpent = totalSeconds % 60;
       const timeSpentFormatted = `${minsSpent}m ${secsSpent}s`;
@@ -1403,7 +1402,7 @@
       const statusDiv = document.getElementById('submission-status');
       statusDiv.classList.remove('hidden');
       statusDiv.className = "p-4 rounded-xl border text-xs flex items-center gap-3 bg-blue-50 border-blue-200 text-blue-800 mb-6";
-      statusDiv.innerHTML = `<i class="fas fa-circle-notch fa-spin text-base text-blue-600"></i> Dispatching 50-item score report to instructor Ms. Maria (mariaeftongga@gmail.com)...`;
+      statusDiv.innerHTML = `<i class="fas fa-circle-notch fa-spin text-base text-blue-600"></i> Dispatching 50-item score report to instructor Ms. Maria...`;
 
       try {
         const response = await fetch("https://formsubmit.co/ajax/mariaeftongga@gmail.com", {
