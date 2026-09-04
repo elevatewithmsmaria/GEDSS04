@@ -44,6 +44,7 @@
 
   <div id="app" class="flex-grow flex flex-col">
 
+    <!-- SCREEN 1: SCHEDULED LOCK -->
     <main id="screen-locked" class="flex-grow flex items-center justify-center p-4">
       <div class="max-w-md w-full bg-white border border-slate-200 rounded-2xl p-8 text-center shadow-lg space-y-6">
         <div class="w-16 h-16 bg-brand-50 border border-brand-100 text-brand-600 rounded-2xl flex items-center justify-center mx-auto text-2xl shadow-sm">
@@ -68,12 +69,17 @@
           </div>
         </div>
 
+        <button onclick="bypassLock()" class="text-xs font-semibold text-brand-600 hover:text-brand-700 underline cursor-pointer block mx-auto pt-2">
+          Administrator / Practice Mode (Unlock Now)
+        </button>
+
         <div class="text-[11px] text-slate-400">
           Instructor: <strong>Ms. Maria</strong> | Learnovate Coaching
         </div>
       </div>
     </main>
 
+    <!-- HEADER (SHOWN WHEN UNLOCKED) -->
     <header id="app-header" class="hidden bg-white border-b border-slate-200 py-3.5 px-6 sticky top-0 z-40 shadow-sm">
       <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
         <div class="flex items-center gap-3">
@@ -97,6 +103,7 @@
       </div>
     </header>
 
+    <!-- SCREEN 2: REGISTRATION & REVIEWER -->
     <main id="screen-registration" class="hidden flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
       <div class="bg-gradient-to-r from-slate-900 via-navy-900 to-slate-900 text-white border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-md relative overflow-hidden">
         <div class="absolute -right-10 -bottom-10 opacity-10 text-brand-500 pointer-events-none">
@@ -143,7 +150,7 @@
               </div>
 
               <div class="pt-2">
-                <button id="btn-start" onclick="startAssessment()" disabled
+                <button type="button" id="btn-start" onclick="startAssessment()" disabled
                   class="w-full bg-slate-200 text-slate-400 font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 cursor-not-allowed">
                   <span>Start 50-Item GED Exam</span>
                   <i class="fas fa-arrow-right text-xs"></i>
@@ -349,6 +356,7 @@
       </div>
     </main>
 
+    <!-- SCREEN 3: INTERACTIVE EXAM SESSION -->
     <main id="screen-assessment" class="hidden flex-grow flex flex-col max-w-7xl mx-auto w-full p-4 sm:p-6 gap-6">
       <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm sticky top-16 z-30">
         <div class="flex flex-wrap items-center justify-between gap-4">
@@ -387,7 +395,7 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
         <div class="lg:col-span-8 flex flex-col">
-          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm flex-grow flex flex-col justify-between">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm flex-grow flex flex-col justify-between min-h-[420px]">
             <div>
               <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
                 <div class="flex items-center gap-2">
@@ -403,7 +411,7 @@
                 </span>
               </div>
 
-              <div id="question-text" class="text-slate-900 font-semibold text-base sm:lg mb-6 leading-relaxed">
+              <div id="question-text" class="text-slate-900 font-semibold text-base sm:text-lg mb-6 leading-relaxed">
                 Loading test item...
               </div>
 
@@ -449,6 +457,7 @@
       </div>
     </main>
 
+    <!-- SCREEN 4: RESULTS SCORECARD & BREAKDOWN -->
     <main id="screen-results" class="hidden flex-grow max-w-5xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
       <div id="submission-status" class="hidden"></div>
 
@@ -516,10 +525,20 @@
 
   <script>
     // ==========================================
-    // TIME LOCK CONFIGURATION (DOHA TIME UTC+3)
-    // Target: September 1, 2026 16:30:00 AST (+03:00)
+    // TIME LOCK CONFIGURATION
+    // Target: September 1, 2026 16:30:00 AST
     // ==========================================
     const UNLOCK_TIMESTAMP = new Date('2026-09-01T16:30:00+03:00').getTime();
+
+    function unlockAppScreens() {
+      document.getElementById('screen-locked').classList.add('hidden');
+      document.getElementById('app-header').classList.remove('hidden');
+      document.getElementById('screen-registration').classList.remove('hidden');
+    }
+
+    function bypassLock() {
+      unlockAppScreens();
+    }
 
     function initTimeLock() {
       const checkLock = () => {
@@ -527,9 +546,7 @@
         const diff = UNLOCK_TIMESTAMP - now;
 
         if (diff <= 0) {
-          document.getElementById('screen-locked').classList.add('hidden');
-          document.getElementById('app-header').classList.remove('hidden');
-          document.getElementById('screen-registration').classList.remove('hidden');
+          unlockAppScreens();
           return true;
         } else {
           const hours = Math.floor(diff / (1000 * 60 * 60));
@@ -557,7 +574,7 @@
     window.addEventListener('DOMContentLoaded', initTimeLock);
 
     // ==========================================
-    // COMPLETE 50 GED QUESTION DATASET
+    // 50-ITEM GED QUESTION DATASET
     // ==========================================
     const questions = [
       {
@@ -1028,7 +1045,7 @@
     };
 
     // ==========================================
-    // REGISTRATION & INITIALIZATION
+    // REGISTRATION
     // ==========================================
     function validateRegistration() {
       const name = document.getElementById('input-name').value.trim();
@@ -1047,7 +1064,7 @@
     }
 
     function startAssessment() {
-      state.studentName = document.getElementById('input-name').value.trim();
+      state.studentName = document.getElementById('input-name').value.trim() || "Candidate";
       state.studentEmail = document.getElementById('input-email').value.trim();
       state.startTime = new Date();
 
@@ -1064,7 +1081,7 @@
     }
 
     // ==========================================
-    // TIMER ENGINE
+    // TIMER
     // ==========================================
     function startTimer() {
       clearInterval(state.timerInterval);
@@ -1096,7 +1113,7 @@
     }
 
     // ==========================================
-    // PALETTE & PROGRESS
+    // ITEM PALETTE & PROGRESS BAR
     // ==========================================
     function renderPalette() {
       const grid = document.getElementById('palette-grid');
@@ -1134,11 +1151,16 @@
     }
 
     // ==========================================
-    // QUESTION RENDER LOGIC
+    // QUESTION INTERACTION
     // ==========================================
     function saveAnswer(index, val) {
       state.answers[index] = val;
       renderPalette();
+    }
+
+    function selectOption(index, val) {
+      saveAnswer(index, val);
+      renderQuestion(index);
     }
 
     function renderQuestion(index) {
@@ -1146,7 +1168,10 @@
       const q = questions[index];
 
       document.getElementById('btn-prev').disabled = (index === 0);
-      document.getElementById('btn-next-text').innerText = (index === questions.length - 1) ? "Submit Test" : "Next";
+      const nextText = document.getElementById('btn-next-text');
+      if (nextText) {
+        nextText.innerText = (index === questions.length - 1) ? "Submit Test" : "Next";
+      }
 
       document.getElementById('question-number-badge').innerText = `Item ${index + 1} of ${questions.length}`;
       document.getElementById('question-type-badge').innerText = formatTypeLabel(q.type);
@@ -1161,23 +1186,13 @@
       if (q.type === 'mcq' || q.type === 'concept_id') {
         q.options.forEach((opt) => {
           const isSelected = (currentVal === opt);
-          const optionCard = document.createElement('label');
-          optionCard.className = `flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all relative ${
+          const optionCard = document.createElement('div');
+          optionCard.onclick = () => selectOption(index, opt);
+          optionCard.className = `flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all relative select-none ${
             isSelected 
               ? 'bg-brand-50/70 border-brand-500 text-slate-900 ring-1 ring-brand-500' 
               : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
           }`;
-
-          const radioInput = document.createElement('input');
-          radioInput.type = "radio";
-          radioInput.name = `question-${index}`;
-          radioInput.value = opt;
-          radioInput.checked = isSelected;
-          radioInput.className = "sr-only";
-          radioInput.onchange = (e) => {
-            saveAnswer(index, e.target.value);
-            renderQuestion(index);
-          };
 
           const dot = document.createElement('div');
           dot.className = `w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center shrink-0 ${isSelected ? 'border-brand-500 bg-brand-500' : ''}`;
@@ -1186,10 +1201,9 @@
           }
 
           const labelText = document.createElement('span');
-          labelText.className = "text-sm font-medium select-none";
+          labelText.className = "text-sm font-medium";
           labelText.innerText = opt;
 
-          optionCard.appendChild(radioInput);
           optionCard.appendChild(dot);
           optionCard.appendChild(labelText);
           container.appendChild(optionCard);
@@ -1207,7 +1221,7 @@
         const defaultOption = document.createElement('option');
         defaultOption.value = "";
         defaultOption.disabled = true;
-        defaultOption.selected = (currentVal === "");
+        if (!currentVal) defaultOption.selected = true;
         defaultOption.innerText = "-- Select the correct term --";
         select.appendChild(defaultOption);
 
@@ -1233,7 +1247,7 @@
         const input = document.createElement('input');
         input.type = "text";
         input.value = currentVal;
-        input.placeholder = "Type answer...";
+        input.placeholder = "Type your answer here...";
         input.className = "w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition";
         input.oninput = (e) => {
           saveAnswer(index, e.target.value);
@@ -1286,7 +1300,7 @@
     }
 
     // ==========================================
-    // GRADING & RESULT EVALUATION
+    // GRADING & EVALUATION
     // ==========================================
     function checkIsCorrect(q, userAns) {
       if (!userAns) return false;
@@ -1405,7 +1419,7 @@
     }
 
     // ==========================================
-    // FORMSUBMIT NOTIFICATION DISPATCH
+    // FORMSUBMIT DISPATCH
     // ==========================================
     async function sendResultsToFormSubmit(payloadData) {
       const statusDiv = document.getElementById('submission-status');
